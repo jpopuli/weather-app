@@ -37,7 +37,7 @@ function kelvinToCelsius(temp) {
 }
 
 async function callWeatherAPI(city) {
-	const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6de91a508777a5ca54936b8228dee0cc&units=metric`;
+	const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid={api_key}&units=metric`;
 
 	try {
 		const res = await fetch(api);
