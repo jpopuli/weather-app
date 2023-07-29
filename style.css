@@ -65,50 +65,124 @@ main {
 main .weather-icon {
 	height: 120px;
 	width: 120px;
-	margin-bottom: 0.8rem;
+	margin-bottom: 1rem;
 }
 
 main .temp {
-	font-size: 2rem;
+	font-size: 2.5rem;
+}
+
+main .temp span {
 	position: relative;
+	margin-right: 0.8rem;
 }
 
-main .temp + span {
-	font-size: 2rem;
-	margin-left: 0.5rem;
-}
-
-main .temp::after {
+main .temp span::after {
 	content: 'o';
 	position: absolute;
-	font-size: 12px;
-	right: -10px;
+	right: -8px;
+	font-size: 10px;
 }
 
-main .desc {
-	text-transform: uppercase;
-	font-size: 0.8rem;
+main .location {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	gap: 8px;
+	font-size: 0.9rem;
 }
 
-main .desc.condition {
-	font-size: 1rem;
+main .location .location-icon {
+	height: 13px;
+	width: 13px;
 }
 
 .weather-info {
 	margin-top: 2rem;
 	padding: 0 1rem;
-	display: flex;
-	flex-wrap: nowrap;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 	gap: 2px;
 }
 
 .weather-info > div {
-	width: 100%;
-	background-color: rgba(82, 109, 130, 0.4);
-	padding: 1.5rem;
+	background-color: rgba(82, 109, 130, 0.3);
+	padding: 1.5rem 0;
 	border-radius: 4px;
 
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	gap: 0.6rem;
+}
+
+.weather-info > div span:nth-child(1) {
+	font-size: 1.5rem;
+	color: #78b9eb;
+}
+
+.weather-info > div span:nth-child(3) {
+	font-size: 12px;
+}
+
+.weather-info .info-icon {
+	height: 20px;
+	width: 20px;
+}
+
+.tmp {
+	position: relative;
+	margin-right: 3px;
+}
+
+.tmp::after {
+	content: 'o';
+	position: absolute;
+	right: -5px;
+	top: 0;
+	font-size: 8px;
+}
+
+.sm {
+	font-size: 0.8rem;
+}
+
+.my-app {
+	display: none;
+}
+
+.temp-display {
+	height: calc(100vh - 57px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.temp-display p {
+	color: #526d82;
+	font-size: 1rem;
+	max-width: 80%;
+	text-align: center;
+}
+
+.temp-icon {
+	height: 130px;
+	width: 130px;
+}
+
+.temp-icon.question {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.temp-icon.question p {
+	font-size: 6rem;
+}
+
+.temp-display.hide {
+	display: none;
 }

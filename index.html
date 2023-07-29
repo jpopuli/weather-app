@@ -15,19 +15,66 @@
 			</div>
 		</header>
 
-		<main>
-			<div class="weather-icon">
-				<img src="img/rainy-day.png" alt="Weather" id="icon" />
+		<div class="temp-display" id="placeholder">
+			<div class="temp-icon">
+				<img src="img/weather.png" alt="weather" />
 			</div>
-			<p><span class="temp" id="temperature"></span> <span>C</span></p>
-			<p class="desc condition" id="condition"></p>
-			<p class="desc"><span id="city"></span>, <span id="country"></span></p>
-		</main>
+			<p>Start by typing a city name in the search bar</p>
+		</div>
 
-		<div class="weather-info main">
-			<div>78</div>
-			<div>52</div>
-			<div>89</div>
+		<div class="temp-display hide" id="no-result">
+			<div class="temp-icon question">
+				<p>?</p>
+			</div>
+			<p>City not found. Weather lost in the clouds.</p>
+		</div>
+
+		<div class="my-app" id="app">
+			<main>
+				<div class="weather-icon">
+					<img src="img/rainy-day.png" alt="Weather" id="icon" />
+				</div>
+
+				<!-- Temperature -->
+				<div class="temp"><span></span>C</div>
+
+				<!-- Weather condition -->
+				<div class="condition"></div>
+
+				<!-- Location -->
+				<div class="location">
+					<div class="location-icon">
+						<img src="img/location.png" alt="Location" />
+					</div>
+					<div class="city-country"></div>
+				</div>
+			</main>
+
+			<div class="weather-info main">
+				<div class="feels">
+					<span></span>
+					<div class="info-icon">
+						<img src="img/thermometer.png" alt="thermometer" />
+					</div>
+					<span>Feels like</span>
+				</div>
+
+				<div class="wind">
+					<span></span>
+					<div class="info-icon">
+						<img src="img/wind.png" alt="wind" />
+					</div>
+					<span>Wind</span>
+				</div>
+
+				<div class="humidity">
+					<span></span>
+					<div class="info-icon">
+						<img src="img/humidity.png" alt="humidity" />
+					</div>
+					<span>Humidity</span>
+				</div>
+			</div>
 		</div>
 
 		<script src="script.js"></script>

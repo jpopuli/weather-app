@@ -7,16 +7,29 @@ search.addEventListener('click', () => {
 	callWeatherAPI(cityName)
 		.then((data) => {
 			console.log(data);
-			const icon = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-			document.querySelector('#temperature').textContent = kelvinToCelsius(data.main.temp);
-			document.querySelector('#city').textContent = cityName;
-			document.querySelector('#country').textContent = data.sys.country;
-			document.querySelector('#condition').textContent = data.weather[0].main;
+			displayForecast(data);
 		})
 		.catch((error) => {
-			console.error(error);
+			console.log('Button error: ' + error);
+			document.querySelector('#app').style.display = 'none';
+			document.querySelector('#placeholder').style.display = 'none';
+			document.querySelector('#no-result').style.display = 'flex';
 		});
 });
+
+function displayForecast(data) {
+	document.querySelector('#app').style.display = 'block';
+	document.querySelector('#placeholder').style.display = 'none';
+	document.querySelector('#no-result').style.display = 'none';
+
+	document.querySelector('main .temp span').textContent = Math.round(data.main.temp);
+	document.querySelector('main .condition').textContent = data.weather[0].main;
+	document.querySelector('main .city-country').textContent = `${data.name}, ${data.sys.country}`;
+
+	document.querySelector('.weather-info .feels span').innerHTML = `<span class="tmp">${Math.round(data.main.feels_like)}</span> <small class="sm">c</small>`;
+	document.querySelector('.weather-info .wind span').innerHTML = `${Math.round(data.wind.speed)} <small class="sm">km/h</small>`;
+	document.querySelector('.weather-info .humidity span').innerHTML = `${data.main.humidity} <small class="sm">%</small>`;
+}
 
 function kelvinToCelsius(temp) {
 	const celsius = temp - 273.15;
@@ -24,7 +37,7 @@ function kelvinToCelsius(temp) {
 }
 
 async function callWeatherAPI(city) {
-	const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6de91a508777a5ca54936b8228dee0cc`;
+	const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6de91a508777a5ca54936b8228dee0cc&units=metric`;
 
 	try {
 		const res = await fetch(api);
@@ -32,6 +45,6 @@ async function callWeatherAPI(city) {
 		const data = await res.json();
 		return data;
 	} catch (error) {
-		console.error(error);
+		console.error('API error: ' + error);
 	}
 }
