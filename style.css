@@ -1,0 +1,114 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	background-color: #27374d;
+	color: #dde6ed;
+}
+
+img {
+	height: auto;
+	width: 100%;
+	max-width: 100%;
+	object-fit: cover;
+}
+
+button {
+	border: none;
+	outline: none;
+}
+
+input {
+	width: 100%;
+	border: none;
+	outline: none;
+	font-size: 1rem;
+	color: inherit;
+}
+
+header {
+	overflow: hidden;
+	display: flex;
+	gap: 1rem;
+	flex-wrap: nowrap;
+	padding: 1rem 2rem;
+}
+
+header input {
+	background: transparent;
+	caret-color: #526d82;
+	border-bottom: 1px solid #526d82;
+	padding-bottom: 4px;
+	padding-left: 8px;
+}
+
+header .search-icon {
+	height: 25px;
+	width: 25px;
+	background: transparent;
+	cursor: pointer;
+}
+
+main {
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+}
+
+main .weather-icon {
+	height: 120px;
+	width: 120px;
+	margin-bottom: 0.8rem;
+}
+
+main .temp {
+	font-size: 2rem;
+	position: relative;
+}
+
+main .temp + span {
+	font-size: 2rem;
+	margin-left: 0.5rem;
+}
+
+main .temp::after {
+	content: 'o';
+	position: absolute;
+	font-size: 12px;
+	right: -10px;
+}
+
+main .desc {
+	text-transform: uppercase;
+	font-size: 0.8rem;
+}
+
+main .desc.condition {
+	font-size: 1rem;
+}
+
+.weather-info {
+	margin-top: 2rem;
+	padding: 0 1rem;
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 2px;
+}
+
+.weather-info > div {
+	width: 100%;
+	background-color: rgba(82, 109, 130, 0.4);
+	padding: 1.5rem;
+	border-radius: 4px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
